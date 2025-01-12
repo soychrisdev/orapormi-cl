@@ -7,10 +7,10 @@ export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="inline-block max-w-xl text-center justify-center">
-        <span className={title()}>Haz tu&nbsp;</span>
-        <span className={title({ color: "violet" })}>petición&nbsp;</span>
-        <span className={title()}>u&nbsp;</span>
-        <span className={title({ color: "blue" })}>oración&nbsp;</span>
+        <span className={title()}>Haz tu</span>
+        <span className={title({ color: "violet" })}>petición</span>
+        <span className={title()}>u</span>
+        <span className={title({ color: "blue" })}>oración</span>
         <br />
         <span className={title()}>y recibe la respuesta de Dios.</span>
         <div className={subtitle({ class: "mt-4" })}>

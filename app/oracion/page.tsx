@@ -4,9 +4,9 @@ import PaginationComponent from "./_components/pagination/peticiones-paginador";
 import { db } from "@/lib/db"; // Asegúrate de que esto sea accesible
 
 // Esta es una función asíncrona que se ejecutará en el servidor
-export default async function Page({ searchParams }) {
+export default async function Page({ searchParams }: { searchParams: any }) {
   const resultsPerPage = 3;
-  const currentPage = parseInt(searchParams.page) || 1; // Página actual desde los parámetros de la URL
+  const currentPage = (await parseInt(searchParams.page)) || 1; // Página actual desde los parámetros de la URL
   const skip = (currentPage - 1) * resultsPerPage;
 
   // Obtener las peticiones de la base de datos
@@ -21,15 +21,12 @@ export default async function Page({ searchParams }) {
 
   return (
     <div>
-      {/* Renderiza las peticiones obtenidas */}
       {peticiones.map((peticion) => (
         <PeticionesCard key={peticion.id} peticion={peticion} />
       ))}
-
-      {/* Paginación */}
       <PaginationComponent
         currentPage={currentPage}
-        total={Math.round(totalPeticiones / resultsPerPage)}
+        total={Math.ceil(totalPeticiones / resultsPerPage)}
       />
     </div>
   );

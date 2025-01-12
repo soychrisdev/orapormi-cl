@@ -3,12 +3,18 @@
 import { Pagination } from "@nextui-org/pagination";
 import { useRouter } from "next/navigation"; // Usamos next/navigation para el enrutamiento
 
-export default function PaginationComponent({ currentPage, total }) {
+export default function PaginationComponent({
+  currentPage,
+  total,
+}: {
+  currentPage: number;
+  total: number;
+}) {
   const router = useRouter();
 
-  const handlePageChange = (page) => {
+  const handlePageChange = (page: number) => {
     // Actualizamos la URL sin recargar la página
-    router.push(`?page=${page}`, { shallow: true });
+    router.push(`?page=${page}`);
   };
 
   return (
